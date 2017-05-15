@@ -1,0 +1,5 @@
+\begin{frame}{Maximum Carpool Matching cont.}
+\begin{theorem}
+There is a $\frac{1}{2}$-approximation algorithm for The Maximum Carpool Matching problem.
+\end{theorem}
+\end{frame}

@@ -1,0 +1,15 @@
+\begin{frame}{Combinatorial Optimization}
+\begin{itemize}[<+->]
+  \item Artificial Intelligence, Machine Learning, Image Processing...
+  \item Most problems are NP-hard.
+	\begin{itemize}[<+->]
+	  \item Heuristics.
+	  \item Special Cases.
+	  \item Parameterized Complexity.
+	  \item \textbf{Approximation Algorithms}.
+		\begin{itemize}[<+->]
+			\item $\alpha$-approximation.
+		\end{itemize}
+	\end{itemize}
+\end{itemize}
+\end{frame}

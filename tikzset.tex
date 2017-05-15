@@ -1,0 +1,110 @@
+% Commands
+\newcommand{\edge}[3][]{
+	\draw[#1] (#2) edge (#3);
+}
+
+\newcommand{\edgeWithLabel}[4][]{
+	\draw[#1] (#2) edge node[edge label]{#3} (#4);
+}
+
+\newcommand{\twocolors}[1]{
+	\fill[fill=orange] (#1.west) -- (#1.east) arc(0:180:7.5pt);
+	\fill[fill=blue] (#1.west) -- (#1.east) arc(0:-180:7.5pt);
+	\node at(#1){};
+}
+
+%  Nodes
+\tikzset{
+	,c1/.style={fill=green!80}
+	,c1d/.style={fill=green!80, dotted}
+	,c2/.style={fill=blue!50}
+	,c2d/.style={fill=blue!50, dotted}
+	,c3/.style={fill=orange!80}
+	,c4/.style={fill=red!80}
+	,c5/.style={fill=pink}
+	,c6/.style={fill=violet}
+	,c7/.style={fill=yellow}
+	,c8/.style={fill=Sepia}
+}
+
+% Animation
+\tikzset{
+	on/.code args={<#1>#2}{
+  		\only<#1>{\pgfkeysalso{#2}}
+	},
+	alt/.code args={<#1>#2#3}{
+  		\alt<#1>{\pgfkeysalso{#2}}{\pgfkeysalso{#3}}
+	},
+	hide/.style={
+		opacity=0
+	},
+	show/.style={
+		opacity=1
+	},
+	hide nodes/.style={
+		every node/.append style={hide}
+	},
+	hide nodes text/.style={
+		every node/.append style={text=white}
+	},
+	show nodes/.style={
+		every node/.append style={show}
+	},
+	show nodes text/.style={
+		every node/.append style={text=black}
+	},
+	blur/.style={
+		opacity=0.2
+		,text=white
+	}
+}
+
+% Note
+\tikzset{
+	note/.style={
+		rectangle callout
+		,fill=#1
+		,thin
+		,inner sep=1mm
+	}
+	,noteorange/.style={note=orange!50}
+}
+
+
+% Label
+\tikzset{
+	label/.style={
+		rectangle,	
+		draw=none,
+		fill=white,
+		% font=\tiny,
+		% font=\scriptsize,
+		font=\footnotesize,
+		inner sep=2pt,
+		minimum height=0,
+		minimum width=0,
+	},
+	edge label/.style={
+		label,
+		midway,
+		sloped,
+	},
+	edge label below/.style={edge label, below=1mm},
+	edge label above/.style={edge label, above=1mm},
+}
+
+
+% DEFAULTS
+\tikzset{default node/.style={
+	draw, 
+	circle,
+	inner sep=0mm,
+	minimum size=5mm,
+	font=\small,
+}}
+
+\tikzset{
+	>=latex
+	,every node/.style={default node}
+	,every picture/.append style={very thick, black!70}
+}

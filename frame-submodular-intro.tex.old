@@ -1,0 +1,4 @@
+\begin{frame}{Submodular Function}
+    
+    {\huge$$f(A \cup B) + f(A \cap B) \leq f(A) + f(B)$$}
+\end{frame}

@@ -1,0 +1,12 @@
+Time and Place:   20/2/2019, 15:00, Taub 601
+Speaker:          Gilad Kutiel
+Title:            Approximation Algorithms for the Maximum Carpool Matching and Submodular Maximization
+Supervisor:       Prof. R. Schawrtz and Dr. Dror Rawitz
+Abstract:
+In the Maximum Carpool Matching problem we seek for the best way a group of people can share their ride based on their personal preferences (music, smoking, etc...).
+Submodularity is a property of set functions. The problem of maximizing a submodular function appears in many applications such as viral marketing, information gathering, image segmentation, document summarization, and speeding up satisfiability solvers.
+Both the Maximum Carpool Matching and the Submodular Function Maximization problems are NP-hard, and thus, no efficient algorithm is known for them.
+
+In this talk we will present an approximation algorithm for Submodular Maximization and will show how Submodular Maximization can be used to design an approximation algorithm for the Maximum Carpool Matching problem
+
+
