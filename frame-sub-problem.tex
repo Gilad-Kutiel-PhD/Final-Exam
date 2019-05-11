@@ -1,0 +1,14 @@
+\begin{frame}{Submodular Maximization with a Knapsack Constraint}
+    \begin{itemize}
+        \item a ground set $U$
+        \item a cost function $c:U \to \mathbb{R}$
+        \item a budget $B$
+        \item a monotone\footnote{
+                $\forall A \subseteq B \subseteq U: f(B) \geq f(A)$
+            }, submodular\footnote{
+                $\forall A, B \subseteq U: f(A) + f(B) \geq f(A \cup B) + f(A \cap B)$
+            } function, $f:2^U \to \mathbb{R}$
+        \item find $S$ that maximizes $f$ s.t. $c(S) \leq B$
+    \end{itemize}
+\end{frame}
+
