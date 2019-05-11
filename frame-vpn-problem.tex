@@ -1,0 +1,146 @@
+\begin{frame}{Service Chain Placement in SDNs}
+\centering
+\begin{tikzpicture}[every node/.append style={draw=none}, -, thick]
+
+    % ANIMATIONS
+    
+    \def\timeDeploy{2-} 
+    \def\timeCpu{3} 
+    \def\timeBw{4} 
+    \def\timeLat{5} 
+    \def\timeCost{6} 
+    
+    % TITLES
+    \node at(0,2) {SDN};
+    \node at(0,-4) {Service Chain};
+    
+    % SDN
+    \begin{scope}[y=.6cm]
+    
+    \begin{scope}[on=<{\timeDeploy}>{blur}]
+    \node(2) at(2,3) {\faServer};
+    \node(3) at(3,-2) {\faServer};
+    \node(6) at(6,3) {\faServer};
+    \end{scope}
+    
+    \node(0) at(0,1) {\Huge \faCloud};
+    \node(4) at(4,1.5) {\faServer};
+    \node(7) at(6.5,-1) {\faServer};
+    \node(9) at(9,1) {\Huge \faCloud};
+    
+    \node[on=<{\timeDeploy}>{orange}](1) at(1.5,1) {\faServer};
+    \node[on=<{\timeDeploy}>{blue}](5) at(4.5,-1) {\faServer};
+    \node[on=<{\timeDeploy}>{red}](8) at(7.5,1) {\faServer};
+    
+    \end{scope}
+    % /SDN
+    
+    \begin{scope}[on=<{\timeDeploy}>{blur}]
+    \draw (6) -- (8);
+    \draw (1) -- (2);
+    \draw (1) -- (3);
+    \draw (2) -- (4);
+    \draw (3) -- (4);
+    \draw (3) -- (5);
+    \draw (4) -- (6);
+    \draw (5) -- (6);
+    \draw (6) -- (7);
+    \end{scope}
+    
+    \begin{scope}[on=<{\timeDeploy}>{->}]
+    \draw (0) -- (1);
+    \draw (1) -- (4) node[label above] {\only<{\timeBw}>{$\geq 80$\mb}};
+    \draw (4) -- (5) node[label above] {\only<{\timeBw}>{$\geq 80$\mb}};
+    \draw (5) -- (7) node[label below] {\only<{\timeBw}>{$\geq 40$\mb}};;
+    \draw (7) -- (8) node[label below] {\only<{\timeBw}>{$\geq 40$\mb}};;
+    \draw (8) -- (9);
+    \end{scope}
+    
+    
+    % SC
+    \begin{scope}[
+        xshift=1cm
+        , yshift=-2.5cm
+        , ->
+        , every node/.append style={
+            rectangle
+            , minimum height=4mm
+            % , draw
+        }
+    ]
+    
+    \node(s) at(-1, 0){\Huge \faCloud};
+    
+    \begin{scope}[on=<{\timeDeploy}>{every node/.append style={orange}}]
+    \node(f1) at(1,0) {\faWrench};
+    \node(f2) at(2,0) {\faFlash};
+    \end{scope}
+    
+    \begin{scope}[on=<{\timeDeploy}>{every node/.append style={blue}}]
+    \node(f3) at(3,.5) {\faGear};
+    \node(f5) at(4,0) {\faFilter};
+    \node(f6) at(5,0) {\faTint};
+    \end{scope}
+    
+    \node[on=<{\timeDeploy}>{blur}](f4) at(3, -.5){\faGears};
+    
+    \begin{scope}[on=<{\timeDeploy}>{every node/.append style={red}}]
+    \node(f7) at(6,0) {\faFlask};
+    \end{scope}
+    
+    \node(t) at(8, 0){\Huge \faCloud};
+    
+    \begin{scope}[on=<{\timeDeploy}>{blur}]
+    \draw (f2) -- (f4);
+    \draw (f4) -- (f5);
+    \end{scope}
+    
+    \draw (s) -- (f1);
+    \draw (f1) -- (f2);
+    \draw (f2) -- (f3) node[label above] {\only<{\timeBw}>{80\mb}};
+    \draw (f3) -- (f5);
+    \draw (f5) -- (f6);
+    \draw (f6) -- (f7) node[label below] {\only<{\timeBw}>{40\mb}};
+    \draw (f7) -- (t);
+    \end{scope}
+    % /SC
+    
+    % CPU
+    \only<{\timeCpu}>{
+    \begin{scope}[every node/.style={label}]
+    \node[below=0 of 1]{$\geq 8$\cpu};
+    \node[below=0 of 5]{$\geq 12$\cpu};
+    \node[above=0 of 8]{$\geq 5$\cpu};
+    
+    \node[above=0 of f1]{3\cpu};
+    \node[above=0 of f2]{5\cpu};
+    
+    \node[below=0 of f3]{2\cpu};
+    \node[below=0 of f5]{4\cpu};
+    \node[below=0 of f6]{6\cpu};
+    
+    \node[above=0 of f7]{5\cpu};
+    \end{scope}
+    }
+    % /CPU
+    
+    % LAT
+    \onslide<{\timeLat}>{
+    \begin{scope}[dashed, ->]
+    \draw (0) to[bend left] node[label above] {$\leq 90$\ms} (9);
+    \draw (s) to[bend right] node[label below] {90\ms} (t);
+    \end{scope}
+    }
+    % /LAT
+    
+    \only<{\timeCost}>{
+    \begin{scope}[every node/.style={label}]
+    \node[below=0 of 1]{7\$};
+    \node[below=0 of 5]{4\$};
+    \node[above=0 of 8]{9\$};
+    \end{scope}
+    }
+    
+    \end{tikzpicture}
+    
+\end{frame}

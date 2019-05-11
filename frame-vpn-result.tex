@@ -1,0 +1,29 @@
+\begin{frame}{Our Results}
+
+\begin{itemize}[<+>]
+  \item NP-hardness in many cases 
+\end{itemize}
+
+\vspace{5mm}
+\onslide<+->
+ 
+\def\arraystretch{1.5}
+\begin{tabular}{c | c | l}
+SDN	& Costs	& Our Result
+\\
+\hline
+\onslide<+->{%
+\color{red} DAG	& \color{red}Integral, Polynomial 		& \color{green}Optimal
+}
+\onslide<+->{
+\\
+\color{red}DAG	& \color{green}Any				& \color{green}FPTAS - ($1+\varepsilon$)-apx
+}
+\onslide<+->{
+\\
+\color{green}Any	& \color{green}Any			& \color{orange}FPTAS - ($1+\varepsilon$)-apx\onslide<+>{\footnote{%
+\onslide<.>{running time depends on SDN's typology}}} }
+
+\end{tabular}
+\vspace{2cm}
+\end{frame}
