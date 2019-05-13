@@ -1,7 +1,7 @@
 \begin{frame}{Boosting Framework - Intuition}
-    \begin{center}
-        Assume we can query for the size of some element in $O$. 
-        \\
-        What can we do?
-    \end{center}
+        \begin{itemize}
+            \item Let $\gamma = c(a)$ for some $a \in O$
+            \item Let $b = \displaystyle{\argmax_{\mathclap{e \in U : c(e) \leq \gamma}} f(e)}$
+            \item Choose $b$ and recurs on $U \setminus \{a, b\}, O \setminus a, f_b$
+        \end{itemize}
 \end{frame}

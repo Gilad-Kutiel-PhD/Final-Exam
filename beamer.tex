@@ -1,9 +1,10 @@
 \setbeamertemplate{navigation symbols}{
-\usebeamerfont{footline}
-\usebeamercolor[fg]{footline}
-\hspace{1em}
-\insertframenumber/\inserttotalframenumber
+    \usebeamerfont{footline}
+    \usebeamercolor[fg]{footline}
+    \hspace{1em}
+    \insertframenumber/\inserttotalframenumber
 }
 
 \setbeamertemplate{caption}{\raggedright\insertcaption\par}
-
+% \setbeamercovered{dynamic}
+\setbeamercovered{still covered={\opaqueness<1->{15}},again covered={\opaqueness<1->{70}}}
